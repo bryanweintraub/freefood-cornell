@@ -1,2 +1,7 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+%h1 Cornell Free Food App
+%p Welcome to the Cornell Free Food app! More will be coming soon.
+
+= form_tag(action: "new_post") do
+    =text_field_tag(:title)
+    =text_field_tag(:text)
+    =submit_tag("Submit!")
