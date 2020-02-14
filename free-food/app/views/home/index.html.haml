@@ -1,7 +1,137 @@
-%h1 Cornell Free Food App
-%p Welcome to the Cornell Free Food app! More will be coming soon.
+.container-fluid
+    .row.justify-content-center
+        .col-auto
+            %h1.header-title.display-4 Cornell Free Food App
+    .row.justify-content-center
+        .col-auto
+            %p Welcome to the Cornell Free Food app! More information will be coming soon.
+    .row.justify-content-center
+        .col-6
+            .card.bg-light
+                .card-body
+                    .row.justify-content-center
+                        Fill out the form below to submit a new free food opportunity.
+    &nbsp
+    = form_with url: {action: :new_post} do |f|
+        .row.justify-content-center
+            .col-6
+                .form-group
+                    = f.label :title, "Title of Opportunity"
+                    = f.text_field :title, 
+                                    class: "form-control",
+                                    placeholder: "Placeholder text!"
+        .row.justify-content-center
+            .col-6
+                .form-group
+                    = f.label :text, "Text of Opportunity"
+                    = f.text_field :text,
+                                    class: "form-control",
+                                    placeholder: "Placeholder text!"
+        .row.justify-content-center
+            .col-auto
+                .form-group
+                    = f.submit "Submit!", class: "btn btn-primary lift px-5"
 
-= form_tag(action: "new_post") do
-    =text_field_tag(:title)
-    =text_field_tag(:text)
-    =submit_tag("Submit!")
+
+-# %h1 Cornell Free Food App
+-# %p Welcome to the Cornell Free Food app! More will be coming soon.
+
+-# .wrapper
+-#     .row.justify-content-center
+-#         .col-auto
+-#             = form_tag(action: "new_post") do
+-#                 =text_field_tag(:title)
+-#                 =text_field_tag(:text)
+-#                 =submit_tag("Submit!")
+
+-# .header
+-#     .header-body
+-#         %h1.header-title.display-4 Get example essays and step-by-step writing guides
+
+-# .card.bg-light
+-#     .card-body
+-#         .row.justify-content-center
+-#             .col-auto
+-#                 %p Because you’re applying to e estimate you have <strong>#{pluralize(@number_of_essays, "essay")}</strong> to complete.
+-#         .row
+-#             .col-6
+-#                 Here are the next steps we recommend:
+-#             .col-6
+-#                 %ol
+-#                     %li
+-#                         <strong>Read</strong> the <strong>essay breakdowns</strong> and <strong>example essays</strong>
+-#                         for each prompt to understand what makes a good essay.
+-#                     %li
+-#                         Work on your essays for the highest priority schools using our expert step-by-step guides.
+-#                     %li
+-#                         <strong>Reuse or adapt</strong> your essays when you can –
+-#         .row
+-#             %h2 You have essays. Check out our guides for each of them.
+-#             For essays with multiple prompt options, remember to hide the options you didn’t select to keep your list up-to-date.
+-# -# = form_for 
+
+-# .row
+-#     .col-12
+-#         =form_for @form, url: { action: :submit_form } do |f|
+-#         .row
+-#             .col-6
+-#             .form-group
+-#                 = f.label :persona, "High school graduation year"
+-#                 = f.select  :persona,
+-#                             options_for_select(@persona_options, @form.persona),
+-#                             { include_blank: "Select…" },
+-#                             { id: "select-persona", class: (input_field_class f, :persona, @validated) }
+-#                 = validation_message f, :persona
+
+-#     -#       .form-group
+-#     -#         = f.label :high_school_zip_code, "High school ZIP code"
+    -#         = f.text_field  :high_school_zip_code,
+    -#                         class: (input_field_class f, :high_school_zip_code, @validated),
+    -#                         placeholder: "5-digit ZIP code"
+    -#         = validation_message f, :high_school_zip_code
+
+    -#   .row
+    -#     .col-12
+    -#       %hr
+
+    -#   .row
+    -#     .col-12
+    -#       .form-row
+    -#         .col-6
+    -#           .form-group
+    -#             %label{ for: "first_name" } First name
+    -#             %input{ type: "text", disabled: "true", name: "first_name", id: "first_name", class: "form-control", value: current_user.first_name }
+
+    -#         .col-6
+    -#           .form-group
+    -#             %label{ for: "last_name" } Last name
+    -#             %input{ type: "text", disabled: "true", name: "last_name", id: "last_name", class: "form-control", value: current_user.last_name }
+
+    -#       .form-row
+    -#         .col-12
+    -#           .form-group
+    -#             %label{ for: "email" } Email address
+    -#             %input{ type: "text", disabled: "true", name: "email", id: "email", class: "form-control", value: current_user_email }
+
+    -#       - if @show_social_username
+    -#         .form-row
+    -#           .col-12
+    -#             .form-group
+    -#               = f.label :social_username, "CollegeVine username"
+    -#               %p.small.text-muted
+    -#                 This username will be visible to others on CollegeVine, for example, when you
+    -#                 join a prospective student group chat or appear on the peer essay review leaderboard.
+    -#               .row
+    -#                 .col-12.col-md-6
+    -#                   = f.text_field  :social_username,
+    -#                                   class: (input_field_class f, :social_username, @validated),
+    -#                                   placeholder: "at least 4 characters; letters, numbers, _, - only"
+    -#                   = validation_message f, :social_username
+
+    -#   .row
+    -#     .col-12
+    -#       %hr
+
+    -#   .row
+    -#     .col-12
+    -#       = f.submit "Save", class: "btn btn-primary lift px-5"
